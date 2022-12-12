@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "../redux/canon/actions";
 
 export default function CanonItem() {
-  const count = useSelector((state) => state.canon.value);
+  const counter = useSelector((state) => state.canon.value);
   const dispatch = useDispatch();
   const incrementHandler = (value) => {
     dispatch(increment(value));
@@ -19,6 +19,7 @@ export default function CanonItem() {
       <div class="text-lg py-2">
         <div class="flex flex-row space-x-2 w-full items-center rounded-lg">
           <button
+            id="decrementButton"
             onClick={() => decrementHandler(1)}
             class="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
           >
@@ -37,7 +38,7 @@ export default function CanonItem() {
               />
             </svg>
           </button>
-          <p>{count}</p>
+          <p>{counter}</p>
           <button
             onClick={() => incrementHandler(1)}
             class="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"

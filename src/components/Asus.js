@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "../redux/asus/actions";
 
 export default function Asus() {
+  const quantity = useSelector((state) => state.asus.quantity);
+  const price = useSelector((state) => state.asus.price);
+
   const dispatch = useDispatch();
   const incrementHandler = (value) => {
     dispatch(increment(value));
@@ -11,12 +14,14 @@ export default function Asus() {
     <div class="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
       <div class="flex justify-between px-4 items-center">
         <div class="text-lg font-semibold">
-          <p>Asus Vivobook X515MA (20)</p>
-          <p class="text-gray-400 text-base">Tk 35,500</p>
+          <p>Asus Vivobook X515MA ({quantity})</p>
+          <p class="text-gray-400 text-base">Tk {price}</p>
         </div>
         <div class="text-lg font-semibold">
           <button
-            onClick={() => incrementHandler(1)}
+            onClick={() => {
+              incrementHandler(1);
+            }}
             class="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-2 rounded-full inline-flex items-center"
           >
             <svg

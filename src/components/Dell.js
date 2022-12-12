@@ -1,8 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../redux/dell/actions";
 
 export default function Dell() {
+  const quantity = useSelector((state) => state.dell.quantity);
+  const price = useSelector((state) => state.dell.price);
+
   const dispatch = useDispatch();
   const incrementHandler = (value) => {
     dispatch(increment(value));
@@ -11,8 +14,8 @@ export default function Dell() {
     <div class="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
       <div class="flex justify-between px-4 items-center">
         <div class="text-lg font-semibold">
-          <p>Dell E1916HV 18.5 Inch (35)</p>
-          <p class="text-gray-400 text-base">Tk 9,300</p>
+          <p>Dell E1916HV 18.5 Inch ({quantity})</p>
+          <p class="text-gray-400 text-base">Tk {price}</p>
         </div>
         <div class="text-lg font-semibold">
           <button

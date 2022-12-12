@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "../redux/dell/actions";
 
 export default function DellItem() {
-  const count = useSelector((state) => state.dell.value);
+  const counter = useSelector((state) => state.dell.value);
   const dispatch = useDispatch();
   const incrementHandler = (value) => {
     dispatch(increment(value));
@@ -37,7 +37,7 @@ export default function DellItem() {
               />
             </svg>
           </button>
-          <p>{count}</p>
+          <p>{counter}</p>
           <button
             onClick={() => incrementHandler(1)}
             class="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"

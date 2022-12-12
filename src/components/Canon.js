@@ -1,8 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../redux/canon/actions";
 
 export default function Canon() {
+  const quantity = useSelector((state) => state.canon.quantity);
+  const price = useSelector((state) => state.canon.price);
   const dispatch = useDispatch();
   const incrementHandler = (value) => {
     dispatch(increment(value));
@@ -11,8 +13,8 @@ export default function Canon() {
     <div class="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
       <div class="flex justify-between px-4 items-center">
         <div class="text-lg font-semibold">
-          <p>Canon Eos 4000D 18MP (72)</p>
-          <p class="text-gray-400 text-base">Tk 36,500</p>
+          <p>Canon Eos 4000D 18MP ({quantity})</p>
+          <p class="text-gray-400 text-base">Tk {price}</p>
         </div>
         <div class="text-lg font-semibold">
           <button
